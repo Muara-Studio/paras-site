@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PARAS · Muara Studio</title>
+  <meta name="description" content="PARAS reads your face through the webcam, cuts it into pieces and fails to put it back together. A Muara Studio study after IRIS by Antikode; runs entirely in your browser.">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="noindex">  <!-- a study of another studio's piece: reachable from the Muara POC page, kept out of search -->
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-tone="camera" class="ghost">
+  <canvas id="screen" aria-label="PARAS camera view"></canvas>
+
+  <header class="bar top">
+    <div class="brand"><span id="num">01</span> <span class="name">PARAS</span> <span id="status">/ PARAS</span></div>
+    <nav>
+      <button type="button" data-open="info">[ INFO ]</button>
+      <button type="button" data-open="credits">[ CREDITS ]</button>
+    </nav>
+  </header>
+  <div id="readout" aria-hidden="true"></div>
+
+  <section id="title" aria-labelledby="title-h">
+    <h1 id="title-h">PARAS</h1>
+    <span class="rule" aria-hidden="true"></span>
+    <p class="kicker">PARAS — PORTRAIT ANALYSIS, RECONSTRUCTION &amp; AUTOMATED SORTING</p>
+    <p class="about">A SYSTEM THAT LOOKS AT YOU, BREAKS YOUR FACE INTO PARTS AND TRIES TO REBUILD IT. IT KEEPS GETTING YOU WRONG.</p>
+    <button type="button" id="begin" hidden>LET PARAS READ YOU</button>
+    <p class="note">NOTHING IS RECORDED // FRAMES STAY ON THIS DEVICE</p>
+  </section>
+
+  <p id="sub" aria-hidden="true" hidden><b>PARAS:</b> <span id="sub-text"></span></p>
+  <p id="said" class="sr" aria-live="polite"></p>
+
+  <footer class="bar bottom">
+    <span>PARAS V0.2 // MUARA STUDIO</span>
+    <span>LOCAL ONLY // FRAMES STAY ON THIS DEVICE // <span id="fps">60.0</span> FPS</span>
+  </footer>
+
+  <dialog id="info" aria-labelledby="info-h">
+    <form method="dialog" class="panel-head"><span id="info-h">FILE 01 // ABOUT</span><button aria-label="Close">[ X ]</button></form>
+    <h2>PARAS <span>Portrait Analysis, Reconstruction &amp; Automated Sorting</span></h2>
+    <p>A camera finds your face, maps it, cuts it into pieces, files the pieces and tries to put you back together. The more it sorts, the less the result looks like you.</p>
+    <p>Paras is Indonesian for a face, the way people see it. This piece is a Muara Studio study of IRIS, Antikode's installation. All tracking runs in your browser; no frame is stored or sent.</p>
+  </dialog>
+
+  <dialog id="credits" aria-labelledby="credits-h">
+    <form method="dialog" class="panel-head"><span id="credits-h">FILE 02 // CREDITS</span><button aria-label="Close">[ X ]</button></form>
+    <p>ORIGINAL WORK: <a href="https://antikode-motion-iris.vercel.app/" target="_blank" rel="noopener">IRIS</a> by <a href="https://antikode.com/" target="_blank" rel="noopener">Antikode</a>, ADGI 2026 · Off the Grid.</p>
+    <p>PARAS: a Muara Studio study with its own code and copy, not affiliated with Antikode. Face and body tracking by MediaPipe (Apache-2.0); type is IBM Plex Mono (OFL).</p>
+  </dialog>
+
+  <div id="nocam" hidden>
+    <p>CAMERA ACCESS DENIED</p>
+    <p class="small">PARAS needs your camera to see you. Nothing is recorded or uploaded.</p>
+    <button type="button" id="retry">[ ALLOW CAMERA ]</button>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
